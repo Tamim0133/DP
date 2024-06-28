@@ -51,14 +51,14 @@ int func(int i)
     if (dp[i] != -1)
         return dp[i];
 
-    int cost = INT_MAX;
+    int y = INT_MAX;
 
-    cost = min(cost, func(i - 1) + abs(h[i] - h[i - 1]));
+    int x = func(i - 1) + abs(h[i] - h[i - 1]);
 
     if (i > 1)
-        cost = min(cost, func(i - 2) + abs(h[i] - h[i - 2]));
+        y = func(i - 2) + abs(h[i] - h[i - 2]);
 
-    return dp[i] = cost;
+    return dp[i] = min(x, y);
 }
 int main()
 {
